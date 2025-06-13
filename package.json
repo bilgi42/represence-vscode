@@ -1,0 +1,63 @@
+{
+  "name": "vscode-file-info",
+  "displayName": "Represence Code Extension",
+  "description": "Shows information about the current file via WebSocket for presence detection",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:vscode-file-info.showFileInfo",
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-file-info.showFileInfo",
+        "title": "Show Current File Info"
+      },
+      {
+        "command": "vscode-file-info.openSettings",
+        "title": "Configure Represence Extension"
+      }
+    ],
+    "configuration": {
+      "title": "Represence Extension",
+      "properties": {
+        "fileInfo.websocketPort": {
+          "type": "number",
+          "default": 3847,
+          "minimum": 1024,
+          "maximum": 65535,
+          "description": "WebSocket server port for presence detection. Change this if you experience port conflicts. Environment variable REPRESENCE_VSCODE_PORT takes precedence.",
+          "scope": "application"
+        },
+        "fileInfo.enableLogging": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable verbose logging in the developer console",
+          "scope": "application"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.60.0",
+    "@types/ws": "^8.5.5",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "ws": "^8.13.0"
+  }
+}
