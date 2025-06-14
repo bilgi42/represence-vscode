@@ -33,7 +33,7 @@
           "default": 3847,
           "minimum": 1024,
           "maximum": 65535,
-          "description": "WebSocket server port for presence detection. Change this if you experience port conflicts. Environment variable REPRESENCE_VSCODE_PORT takes precedence.",
+          "description": "WebSocket server port for presence detection. Change this if you experience port conflicts.",
           "scope": "application"
         },
         "fileInfo.enableLogging": {

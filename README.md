@@ -62,13 +62,9 @@ Access settings via:
 
 ### Environment Variable Override
 
-You can override the port using an environment variable:
-```bash
-export REPRESENCE_VSCODE_PORT=4000
-code  # Port 4000 will be used instead of the setting
-```
+Environment variable support has been removed. Use VS Code settings instead.
 
-**Priority order:** Environment Variable > VS Code Setting > Default (3847)
+**Priority order:** VS Code Setting > Default (3847)
 
 ## 🎮 Usage
 
@@ -141,7 +137,6 @@ If you see "Failed to start WebSocket server on port 3847. Port might be in use"
    # Windows
    netstat -ano | findstr :3847
    ```
-3. **Use environment variable**: Set `REPRESENCE_VSCODE_PORT` to a different port
 
 ### Extension Not Working
 1. **Check developer console**: Help → Toggle Developer Tools → Console tab

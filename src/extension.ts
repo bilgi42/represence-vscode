@@ -7,15 +7,7 @@ let wss: WebSocket.Server | undefined;
 let isServerRunning = false;
 
 function getPort(): number {
-    // Priority: Environment variable > VS Code setting > Default
-    const envPort = process.env.REPRESENCE_VSCODE_PORT;
-    if (envPort) {
-        const port = parseInt(envPort, 10);
-        if (!isNaN(port) && port >= 1024 && port <= 65535) {
-            return port;
-        }
-    }
-    
+    // Priority: VS Code setting > Default
     const config = vscode.workspace.getConfiguration('fileInfo');
     const settingPort = config.get<number>('websocketPort', 3847);
     
