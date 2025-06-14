@@ -1,5 +1,5 @@
 {
-  "name": "vscode-file-info",
+  "name": "represence-vscode",
   "displayName": "Represence Code Extension",
   "description": "Shows information about the current file via WebSocket for presence detection",
   "version": "0.0.2",
@@ -10,18 +10,18 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:vscode-file-info.showFileInfo",
+    "onCommand:represence-vscode.showFileInfo",
     "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "vscode-file-info.showFileInfo",
+        "command": "represence-vscode.showFileInfo",
         "title": "Show Current File Info"
       },
       {
-        "command": "vscode-file-info.openSettings",
+        "command": "represence-vscode.openSettings",
         "title": "Configure Represence Extension"
       }
     ],

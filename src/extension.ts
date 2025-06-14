@@ -37,13 +37,13 @@ function getCurrentFileInfo() {
     const editor = vscode.window.activeTextEditor;
     if (!editor) {
         return {
-            filename: "No file open",
+            fileName: "No file open",
             extension: "",
-            path: "",
-            language: "",
+            fullPath: "",
+            languageId: "",
             lineCount: 0,
             wordCount: 0,
-            timestamp: new Date().toISOString()
+            timestamp: Date.now()
         };
     }
 
@@ -59,13 +59,13 @@ function getCurrentFileInfo() {
     const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
 
     return {
-        filename,
+        fileName: filename,
         extension,
-        path: fullPath,
-        language,
+        fullPath: fullPath,
+        languageId: language,
         lineCount,
         wordCount,
-        timestamp: new Date().toISOString()
+        timestamp: Date.now()
     };
 }
 
@@ -143,14 +143,14 @@ export function activate(context: vscode.ExtensionContext) {
     startWebSocketServer();
 
     // Register command to show file info
-    const showFileInfoCommand = vscode.commands.registerCommand('vscode-file-info.showFileInfo', () => {
+    const showFileInfoCommand = vscode.commands.registerCommand('represence-vscode.showFileInfo', () => {
         const fileInfo = getCurrentFileInfo();
-        const message = `File: ${fileInfo.filename}\nLanguage: ${fileInfo.language}\nLines: ${fileInfo.lineCount}\nWords: ${fileInfo.wordCount}`;
+        const message = `File: ${fileInfo.fileName}\nLanguage: ${fileInfo.languageId}\nLines: ${fileInfo.lineCount}\nWords: ${fileInfo.wordCount}`;
         vscode.window.showInformationMessage(message);
     });
 
     // Register command to open settings
-    const openSettingsCommand = vscode.commands.registerCommand('vscode-file-info.openSettings', () => {
+    const openSettingsCommand = vscode.commands.registerCommand('represence-vscode.openSettings', () => {
         vscode.commands.executeCommand('workbench.action.openSettings', 'fileInfo');
     });
 
